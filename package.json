@@ -1,0 +1,37 @@
+{
+  "name": "VizMote",
+  "version": "1.0.0",
+  "author": "T3RM1N4L",
+  "license": "MIT",
+  "description": "Control your Vizio TV via terminal or web interface. One-time pairing stores your TV’s IP and token for seamless remote control.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T3M1N4L/VizMote.git"
+  },
+  "keywords": [
+    "website",
+    "terminal",
+    "cli",
+    "tui",
+    "vizio",
+    "smartcast",
+    "remote"
+  ],
+  "scripts": {
+    "start:tui": "node index.js",
+    "start:web": "node web/server.js",
+    "pair": "node setup.js",
+    "kill": "lsof -t -i :3000 | xargs kill -9",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "lucide": "^0.469.0",
+    "vizio-smart-cast": "^1.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

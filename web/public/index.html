@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>VizMote - Web Remote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1><i data-lucide="monitor"></i><span>VizMote</span></h1>
+      <div class="meta">
+        <span class="badge">Web UI</span
+        ><span id="ip-badge" class="badge badge-ip">IP: -</span>
+      </div>
+    </header>
+    <main class="main">
+      <section id="pairing-panel" class="panel">
+        <h2>Pair with your TV</h2>
+        <div class="pairing">
+          <div class="row gap">
+            <label for="pair-ip" class="sr-only">TV IP Address</label
+            ><input
+              id="pair-ip"
+              type="text"
+              placeholder="e.g. 192.168.1.50"
+              class="input"
+            /><button id="btn-pair-start" class="btn btn-primary">
+              Start Pairing
+            </button>
+          </div>
+          <div
+            id="pairing-pin-row"
+            class="row gap hidden"
+            style="margin-top: 8px"
+          >
+            <label for="pair-pin" class="sr-only">PIN</label
+            ><input
+              id="pair-pin"
+              type="text"
+              placeholder="Enter PIN from TV"
+              class="input"
+            /><button id="btn-pair-commit" class="btn btn-primary">
+              Submit PIN
+            </button>
+          </div>
+          <div id="pairing-msg" class="log" aria-live="polite"></div>
+        </div>
+      </section>
+      <section id="remote-panel" class="panel hidden">
+        <h2>Remote</h2>
+        <div class="top-controls">
+          <button id="btn-power-on" class="btn btn-danger" title="Power On (P)">
+            <i data-lucide="power"></i><span>Power</span></button
+          ><button id="btn-menu" class="btn" title="Settings (Esc)">
+            <i data-lucide="settings"></i><span>Settings</span></button
+          ><button id="btn-info" class="btn" title="Info (I)">
+            <i data-lucide="info"></i><span>Info</span>
+          </button>
+        </div>
+        <div class="remote-layout">
+          <div class="nav-container">
+            <div class="nav-grid">
+              <div></div>
+              <button
+                id="btn-up"
+                class="btn btn-nav btn-icon-only"
+                title="Arrow Up (↑)"
+              >
+                <i data-lucide="chevron-up"></i>
+              </button>
+              <div></div>
+              <button
+                id="btn-left"
+                class="btn btn-nav btn-icon-only"
+                title="Arrow Left (←)"
+              >
+                <i data-lucide="chevron-left"></i></button
+              ><button
+                id="btn-ok"
+                class="btn btn-ok"
+                title="OK / Select (Space)"
+              >
+                OK</button
+              ><button
+                id="btn-right"
+                class="btn btn-nav btn-icon-only"
+                title="Arrow Right (→)"
+              >
+                <i data-lucide="chevron-right"></i>
+              </button>
+              <div></div>
+              <button
+                id="btn-down"
+                class="btn btn-nav btn-icon-only"
+                title="Arrow Down (↓)"
+              >
+                <i data-lucide="chevron-down"></i>
+              </button>
+              <div></div>
+            </div>
+          </div>
+          <div class="volume-controls vertical">
+            <button
+              id="btn-vol-up"
+              class="btn btn-volume btn-icon-only"
+              title="Volume Up (+)"
+            >
+              <i data-lucide="plus"></i
+              ><span class="sr-only">Volume Up</span></button
+            ><button
+              id="btn-vol-down"
+              class="btn btn-volume btn-icon-only"
+              title="Volume Down (-)"
+            >
+              <i data-lucide="minus"></i
+              ><span class="sr-only">Volume Down</span>
+            </button>
+          </div>
+        </div>
+        <div class="bottom-controls">
+          <button id="btn-back" class="btn" title="Back (X)">
+            <i data-lucide="undo-2"></i><span>Back</span></button
+          ><button id="btn-home" class="btn" title="Home (H)">
+            <i data-lucide="home"></i><span>Home</span>
+          </button>
+        </div>
+        <h3>Apps</h3>
+        <div class="apps">
+          <button id="app-youtube" class="btn btn-app yt">YouTube</button
+          ><button id="app-hulu" class="btn btn-app hl">Hulu</button
+          ><button id="app-netflix" class="btn btn-app nf">Netflix</button
+          ><button id="app-plex" class="btn btn-app px">Plex</button
+          ><button id="app-disney" class="btn btn-app dp">Disney+</button
+          ><button id="app-tubi" class="btn btn-app ti">Tubi</button>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>Logs</h2>
+        <div id="logs" class="logs" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div>
+        Keys: Arrows navigate • Space OK • X Back • Esc Settings • H Home • S
+        Input • I Info • +/− Volume • P On • Shift+P Off | Made by
+        <a href="https://github.com/t3m1n4l">t3rm1n4l</a>. Star the
+        <a href="https://github.com/t3m1n4l/VizMote">repo</a>!
+      </div>
+    </footer>
+    <script src="/vendor/lucide/dist/umd/lucide.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide) window.lucide.createIcons();
+      });
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
