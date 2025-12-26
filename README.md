@@ -20,7 +20,7 @@ After a one-time pairing, your TV’s IP address and authentication token are sa
 - **No Ads** — Wanna break from the ads from the thousands of remote apps on the app store/play store?
 ---
 
-## 📦 Installation
+## Installation
 Clone the repository and install dependencies:
 
 ```bash
